@@ -24,11 +24,11 @@ Este proyecto fue desarrollado para mostrar mis habilidades como diseños, mis p
 
 ##  Características
 
-✔ Diseño moderno estilo oscuro  
-✔ Animaciones suaves de aparición (scroll reveal)  
-✔ Sección de proyectos dinámica  
-✔ Sección de contacto interactiva  
-✔ Efectos hover profesionales  
+- Diseño moderno estilo oscuro  
+- Animaciones suaves de aparición (scroll reveal)  
+- Sección de proyectos dinámica  
+- Sección de contacto interactiva  
+- Efectos hover profesionales  
 ✔ Totalmente responsive  
 
 ---

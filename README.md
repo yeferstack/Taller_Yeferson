@@ -33,9 +33,12 @@ Este proyecto fue desarrollado para mostrar mis habilidades como diseños, mis p
 ---
 
 ##  Estructura del Proyecto
-/portafolio
+portafolio
+
 │── index.html
+
 │── estilos.css
+
 │── asset
 
 ##  Contacto

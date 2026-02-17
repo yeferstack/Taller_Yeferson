@@ -14,9 +14,8 @@ Este proyecto fue desarrollado para mostrar mis habilidades como diseños, mis p
 
 ##  Tecnologías Utilizadas
 
-- HTML5
+- HTML
 - CSS (Animaciones)
-- JavaScript
 - Diseño Responsive
 - Animaciones con Scroll
 

@@ -1,4 +1,4 @@
-# Portafolio Web - [ Yeferson ]
+# Portafolio Web -  Yeferson 
 
 Bienvenido a mi portafolio personal.  
 Este proyecto fue desarrollado para mostrar mis habilidades como diseños, mis proyectos y formas de contacto.

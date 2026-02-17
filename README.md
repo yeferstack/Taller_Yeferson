@@ -7,12 +7,12 @@ Este proyecto fue desarrollado para mostrar mis habilidades como diseños, mis p
 
 ## 🌐 Demo
 
-🔗 Puedes verlo aquí:  
+ Puedes verlo aquí:  
 [Ver Portafolio](--)
 
 ---
 
-## 🛠 Tecnologías Utilizadas
+##  Tecnologías Utilizadas
 
 - HTML5
 - CSS (Animaciones)

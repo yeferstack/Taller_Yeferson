@@ -1,196 +1,107 @@
-/* =========================================================
-1. VARIABLES GLOBALES DEL TEMA
-========================================================= */
+/* ================= 1. VARIABLES Y CONFIGURACIÓN (TEMA DARK NEON) ================= */
 :root {
-
-    /* ================= COLORES BASE ================= */
-
-    /* Fondo general del sitio */
-    --color-fondo-principal: #000000f8;
-
-    /* Fondo de tarjetas con efecto cristal */
-    --color-fondo-tarjeta: rgba(26, 36, 50, 0.53);
-
-    /* ================= TIPOGRAFÍA ================= */
-
-    /* Texto principal (alto contraste) */
+    --color-fondo-tarjeta: #1a243288;
     --color-texto: #e6edf3;
-
-    /* Texto secundario (descripciones, subtítulos) */
     --color-texto-secundario: #8b949e;
-
-    /* ================= ACENTO ================= */
-
-    /* Color principal neón */
     --color-acento: #00bbff;
-
-    /* Variante más brillante para efectos glow */
-    --color-acento-brillo: #00f2ff;
-
-    /* ================= BORDES ================= */
-
-    /* Bordes suaves */
-    --color-borde: rgba(0, 242, 255, 0.35);
+    --color-borde: #00f2ff5a;
 }
 
-/* =========================================================
-2. RESET GLOBAL PROFESIONAL
-========================================================= */
-/* Box sizing universal */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-/* Mejora el renderizado de texto */
-html {
-    scroll-behavior: smooth;
-}
-/* Evita desbordamientos horizontales */
+
+/* ================= CONFIGURACIÓN DEL BODY ================= */
 body {
-    overflow-x: hidden;
-}
-
-
-/* =========================================================
-CONFIGURACIÓN DEL BODY Y FONDO PRINCIPAL
-========================================================= */
-
-body {
-    /* Tipografía principal */
     font-family: 'Sora', sans-serif;
+    background-color: #000000f8;
 
-    /* Fondo base usando variable */
-    background-color: var(--color-fondo-principal);
-
-    /* ================= GRID TECNOLÓGICO SUAVE =================
-    Líneas muy sutiles para no saturar la vista
-    */
     background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 
-    /* Tamaño más fino y moderno */
-    background-size: 50px 50px;
-
-    /* Fondo fijo para efecto profundidad */
+    background-size: 45px 45px;
     background-attachment: fixed;
 
-    /* Color de texto principal */
     color: var(--color-texto);
-
-    line-height: 1.7; /* Más aire entre líneas */
+    line-height: 1.6;
     overflow-x: hidden;
-
-    /* Mejora renderizado de fuentes */
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
 }
 
-/* =========================================================
-CAPA DE PROFUNDIDAD 
-========================================================= */
+/* Viñeta oscura */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
-
-    /* Gradiente radial más suave y profesional */
-    background: radial-gradient(
-        circle at center,
-        rgba(0, 187, 255, 0.05) 0%,
-        rgba(0, 0, 0, 0.6) 70%
-    );
-
+    background: radial-gradient(circle at 50% 50%, transparent 20%, rgba(0, 0, 0, 0.7) 100%);
     pointer-events: none;
     z-index: 1;
 }
 
-/* =========================================================
-CONTENIDO POR ENCIMA DEL FONDO
-========================================================= */
+/* Elementos sobre el grid */
 .contenedor-principal,
 .barra-superior {
     position: relative;
     z-index: 2;
 }
 
-/* ================= 2. ANIMACIONES DE ENTRADA (CARGA INICIAL) ================= */
-
+/* ================= ANIMACIÓN DE ENTRADA ================= */
 @keyframes entradaSuave {
-    0% {
-        opacity: 0;
-        filter: blur(20px);
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateY(0);
-    }
+    0% { opacity: 0; filter: blur(20px); transform: translateY(20px); }
+    100% { opacity: 1; filter: blur(0); transform: translateY(0); }
 }
 
-.barra-superior {
-    opacity: 0;
-    animation: entradaSuave 1s ease-out forwards;
+.barra-superior { 
+    opacity: 0; 
+    animation: entradaSuave 1s ease-out forwards; 
 }
 
-.contenedor-principal {
-    opacity: 0;
-    animation: entradaSuave 1.2s ease-out 0.4s forwards;
+.contenedor-principal { 
+    opacity: 0; 
+    animation: entradaSuave 1.2s ease-out 0.4s forwards; 
 }
 
-.portada-izquierda {
-    opacity: 0;
-    animation: entradaSuave 1s ease-out 0.8s forwards;
+.portada-izquierda { 
+    opacity: 0; 
+    animation: entradaSuave 1s ease-out 0.8s forwards; 
 }
 
-.portada-derecha {
-    opacity: 0;
-    animation: entradaSuave 1s ease-out 1.1s forwards;
+.portada-derecha { 
+    opacity: 0; 
+    animation: entradaSuave 1s ease-out 1.1s forwards; 
 }
-
 
 /* ================= BARRA SUPERIOR ================= */
-
 .barra-superior {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 80px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding: 0 80px;
-    box-sizing: border-box;
-
     background: transparent;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 1000;
 }
 
-
-/* ===== ESTADO SCROLLED ===== */
+/* Estado scrolled */
 .barra-superior.scrolled {
     top: 20px;
     width: 85%;
     left: 7.5%;
     height: 60px;
-
     border-radius: 100px;
-    padding: 0 40px;
-
     background: rgba(10, 12, 16, 0.8);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-
-    border: 1px solid rgba(0, 243, 255, 0.2);
+    padding: 0 40px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 243, 255, 0.2);
 }
 
 /* ================= LOGO ================= */
@@ -210,13 +121,11 @@ CONTENIDO POR ENCIMA DEL FONDO
     transform: scale(0.9);
 }
 
-/* ================= NAVEGACIÓN ================= */
+/* ================= MENÚ ================= */
 .barra-superior ul {
     list-style: none;
     display: flex;
     gap: 30px;
-    margin: 0;
-    padding: 0;
 }
 
 .barra-superior a {
@@ -225,12 +134,431 @@ CONTENIDO POR ENCIMA DEL FONDO
     font-size: 14px;
     font-weight: 500;
     opacity: 0.85;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 .barra-superior a:hover {
     opacity: 1;
     color: var(--color-acento);
     text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+/* ================= 4. CONTENIDO PRINCIPAL ================= */
+.contenedor-principal {
+    padding: 0 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 120px; /* Espacio real para el header fijo */
+}
+
+/* ================= 5. SECCIÓN PORTADA (HERO) ================= */
+.portada {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;
+    padding: 60px 0;
+}
+
+/* TEXTO */
+.portada h1 {
+    font-size: 55px;
+    line-height: 1.1;
+}
+
+.resaltado {
+    color: var(--color-acento);
+    text-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+}
+
+.subtitulo {
+    margin: 20px 0;
+    color: var(--color-texto-secundario);
+    font-size: 20px;
+}
+
+.descripcion {
+    max-width: 520px;
+    margin-bottom: 35px;
+    color: var(--color-texto-secundario);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* IMAGEN */
+.portada-derecha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portada-derecha img {
+    width: 340px;
+    max-width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.25);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.portada-derecha img:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 0 60px rgba(0, 243, 255, 0.4);
+}
+
+/* BOTONES */
+.botones {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.botones a {
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s ease;
+}
+
+.boton-primario {
+    background: var(--color-acento);
+    color: #000;
+    box-shadow: 0 5px 20px rgba(0, 243, 255, 0.3);
+}
+
+.boton-primario:hover {
+    background: #00c7d4;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 243, 255, 0.5);
+}
+
+/* REDES SOCIALES */
+.redes-sociales {
+    margin-top: 30px;
+    display: flex;
+    gap: 18px;
+}
+
+.redes-sociales a {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #1e252e;
+    color: var(--color-texto-secundario);
+    border: 1px solid var(--color-borde);
+    transition: 0.3s ease;
+}
+
+.redes-sociales a:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-acento);
+    color: var(--color-acento);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+}
+
+
+/* ================= 6. SECCIÓN SOBRE MÍ ================= */
+.sobre-mi {
+    padding: 100px 0;
+}
+
+.contenedor-sobre-mi {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    flex-wrap: wrap;
+}
+
+/* IMAGEN PERFIL */
+.imagen-perfil {
+    flex: 0 0 380px;
+    display: flex;
+    justify-content: center;
+}
+
+.imagen-perfil img {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 8px;
+    background: #000;
+
+    border: 2px solid rgba(0, 187, 255, 0.5);
+
+    box-shadow:
+        inset 0 0 15px rgba(0, 0, 0, 1),
+        0 0 30px rgba(0, 187, 255, 0.2);
+
+    transition: all .4s ease;
+}
+
+.imagen-perfil img:hover {
+    transform: scale(1.05);
+    border-color: var(--color-acento);
+    box-shadow:
+        inset 0 0 10px rgba(0, 0, 0, 0.6),
+        0 0 50px rgba(0, 187, 255, 0.6);
+    filter: brightness(1.08);
+}
+
+/* TEXTO SOBRE MI */
+.contenido-texto {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contenido-texto h2 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.nombre {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: var(--color-acento);
+}
+
+/* TARJETAS */
+.cuadricula-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.tarjeta {
+    background: var(--color-fondo-tarjeta);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid var(--color-borde);
+    transition: 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.tarjeta:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-acento);
+    box-shadow: 0 15px 40px rgba(0, 243, 255, 0.15);
+}
+
+.titulo-tarjeta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.titulo-tarjeta img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.etiqueta {
+    background: #232936;
+    color: var(--color-acento);
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* ================= 7. SECCIÓN HABILIDADES ================= */
+.habilidades {
+    padding: 100px 0;
+}
+
+.titulo-seccion {
+    font-size: 48px;
+    margin: 60px 0;
+    text-align: center;
+}
+
+.titulo-seccion span {
+    color: var(--color-acento);
+}
+
+.subtitulo-habilidades {
+    color: var(--color-texto-secundario);
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+.contenedor-habilidades {
+    background: var(--color-fondo-tarjeta);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding: 50px 60px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+/* VENTANA TERMINAL */
+.botones-ventana {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.punto {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.rojo { background: #ff5f56; }
+.amarillo { background: #ffbd2e; }
+.verde { background: #27c93f; }
+
+.texto-terminal {
+    margin-left: 20px;
+    font-size: 14px;
+    color: var(--color-texto-secundario);
+    font-family: monospace;
+}
+
+/* BARRAS DE HABILIDAD */
+.habilidad-item {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.icono {
+    flex: 0 0 60px;
+    height: 60px;
+    background: #161b22;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    color: var(--color-acento);
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.barra-contenedor {
+    flex: 1;
+}
+
+.encabezado-barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 12px;
+}
+
+.nombre-tec {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.nombre-tec span {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--color-texto-secundario);
+    margin-left: 8px;
+}
+
+.porcentaje {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-acento);
+}
+
+.barra-fondo {
+    width: 100%;
+    height: 8px;
+    background: #2a303c;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.barra-relleno {
+    height: 100%;
+    background: var(--color-acento);
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+/* ================= 8. SECCIÓN PROYECTOS ================= */
+
+/* Contenedor general de la sección */
+.proyectos { 
+    margin-top: 120px; /* Espacio superior respecto a la sección anterior */
+    position: relative; /* Permite posicionar elementos internos de forma absoluta si es necesario */
+}
+
+/* Cada bloque individual de proyecto */
+.proyecto { 
+    min-height: 80vh; /* Hace que cada proyecto ocupe al menos el 80% del alto de la pantalla */
+    display: flex; /* Activa flexbox */
+    align-items: center; /* Centra verticalmente imagen y texto */
+    gap: 80px; /* Espacio entre imagen y texto */
+    position: relative; /* Base para posibles elementos posicionados dentro */
+    margin-bottom: 100px; /* Espacio entre proyectos */
+}
+
+/* Contenedor de la imagen */
+.imagen-proyecto { 
+    flex: 1; /* Ocupa la mitad disponible del espacio */
+    position: relative; 
+}
+
+/* Imagen del proyecto */
+.imagen-proyecto img {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 650px; /* Limita tamaño máximo */
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5); /* Sombra para dar efecto 3D */
+    border: 1px solid var(--color-borde); /* Borde sutil */
+    transition: transform 0.5s ease; /* Animación suave al hacer hover */
+}
+
+/* Efecto al pasar el mouse */
+.imagen-proyecto:hover img { 
+    transform: scale(1.02); /* Pequeño zoom */
+    border-color: var(--color-acento); /* Cambia el color del borde */
+}
+
+/* Contenedor del texto del proyecto */
+.info-proyecto { 
+    flex: 1; /* Ocupa la otra mitad del espacio */
+    max-width: 600px; /* Limita ancho del texto */
+}
+
+/* Título del proyecto */
+.info-proyecto h3 { 
+    font-size: 40px; 
+    margin-bottom: 24px; 
+    color: var(--color-texto); 
+}
+
+/* Descripción del proyecto */
+.info-proyecto p { 
+    font-size: 18px; 
+    line-height: 1.8; /* Mejora la legibilidad */
+    color: var(--color-texto-secundario); 
+}
+
+/* Invertir orden en proyectos pares */
+.proyecto.invertido { 
+    flex-direction: row-reverse; /* Cambia el orden: texto pasa a la izquierda e imagen a la derecha */
 }
 

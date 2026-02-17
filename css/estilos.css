@@ -1,528 +1,119 @@
-    /* ================= 1. VARIABLES Y CONFIGURACIÓN (TEMA DARK NEON) ================= */
-        :root {
-            /* TARJETAS: Un poco más claras para que floten */
-            --color-fondo-tarjeta: #1a243288;
-            
-            /* TEXTO */
-            --color-texto: #e6edf3;
-            --color-texto-secundario: #8b949e;
-            
-            /* ACENTO NEÓN (Cian Eléctrico) */
-            --color-acento: #00bbff;
-            
-            /* BORDES */
-            --color-borde: #00f2ff5a;
-        }
+/* =========================================================
+1. VARIABLES GLOBALES DEL TEMA
+========================================================= */
+:root {
+
+    /* ================= COLORES BASE ================= */
+
+    /* Fondo general del sitio */
+    --color-fondo-principal: #000000f8;
+
+    /* Fondo de tarjetas con efecto cristal */
+    --color-fondo-tarjeta: rgba(26, 36, 50, 0.53);
+
+    /* ================= TIPOGRAFÍA ================= */
+
+    /* Texto principal (alto contraste) */
+    --color-texto: #e6edf3;
+
+    /* Texto secundario (descripciones, subtítulos) */
+    --color-texto-secundario: #8b949e;
+
+    /* ================= ACENTO ================= */
+
+    /* Color principal neón */
+    --color-acento: #00bbff;
+
+    /* Variante más brillante para efectos glow */
+    --color-acento-brillo: #00f2ff;
+
+    /* ================= BORDES ================= */
+
+    /* Bordes suaves */
+    --color-borde: rgba(0, 242, 255, 0.35);
+}
+
+/* =========================================================
+2. RESET GLOBAL PROFESIONAL
+========================================================= */
+/* Box sizing universal */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* Mejora el renderizado de texto */
+html {
+    scroll-behavior: smooth;
+}
+/* Evita desbordamientos horizontales */
+body {
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+CONFIGURACIÓN DEL BODY Y FONDO PRINCIPAL
+========================================================= */
+
+body {
+    /* Tipografía principal */
+    font-family: 'Sora', sans-serif;
+
+    /* Fondo base usando variable */
+    background-color: var(--color-fondo-principal);
+
+    /* ================= GRID TECNOLÓGICO SUAVE =================
+    Líneas muy sutiles para no saturar la vista
+    */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+
+    /* Tamaño más fino y moderno */
+    background-size: 50px 50px;
+
+    /* Fondo fijo para efecto profundidad */
+    background-attachment: fixed;
+
+    /* Color de texto principal */
+    color: var(--color-texto);
+
+    line-height: 1.7; /* Más aire entre líneas */
+    overflow-x: hidden;
+
+    /* Mejora renderizado de fuentes */
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* =========================================================
+CAPA DE PROFUNDIDAD 
+========================================================= */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    /* Gradiente radial más suave y profesional */
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 187, 255, 0.05) 0%,
+        rgba(0, 0, 0, 0.6) 70%
+    );
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* =========================================================
+CONTENIDO POR ENCIMA DEL FONDO
+========================================================= */
+.contenedor-principal,
+.barra-superior {
+    position: relative;
+    z-index: 2;
+}
 
-    * {
-        margin: 0;
-    }
-
-    /* ================= CONFIGURACIÓN DEL BODY (GRID DEEP ELEGANCE) ================= */
-    body {
-        /* Mantengo tu tipografía original */
-        font-family: 'Sora', sans-serif;
-        
-        /* Fondo Negro Absoluto para máximo contraste */
-        background-color: #000000f8;
-        
-        /* CREACIÓN DE LA CUADRÍCULA (GRID) */
-        background-image: 
-            /* Líneas horizontales */
-            linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-            /* Líneas verticales */
-            linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-        
-        /* Tamaño de los cuadros: 45px es un tamaño equilibrado para tu diseño */
-        background-size: 45px 45px;
-        
-        /* Esto hace que el fondo se quede fijo mientras haces scroll */
-        background-attachment: fixed;
-        
-        color: var(--color-texto);
-        line-height: 1.6;
-        margin: 0;
-        overflow-x: hidden;
-    }
-
-    /* Efecto opcional: Un resplandor suave que sigue el contenido */
-    body::before {
-        content: "";
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        /* Gradiente radial que oscurece las esquinas (efecto viñeta) */
-        background: radial-gradient(circle at 50% 50%, transparent 20%, rgba(0, 0, 0, 0.7) 100%);
-        pointer-events: none;
-        z-index: 1;
-    }
-
-    /* Ajuste de los elementos para que floten sobre el grid */
-    .contenedor-principal, .barra-superior {
-        position: relative;
-        z-index: 2;
-    }
-
-    /* ================= 2. ANIMACIONES DE ENTRADA (CARGA INICIAL) ================= */
-    @keyframes entradaSuave {
-        0% { opacity: 0; filter: blur(20px); transform: translateY(20px); }
-        100% { opacity: 1; filter: blur(0px); transform: translateY(0); }
-    }
-
-    .barra-superior { opacity: 0; animation: entradaSuave 1s ease-out forwards; }
-    .contenedor-principal { opacity: 0; animation: entradaSuave 1.2s ease-out 0.4s forwards; }
-    .portada-izquierda { opacity: 0; animation: entradaSuave 1s ease-out 0.8s forwards; }
-    .portada-derecha { opacity: 0; animation: entradaSuave 1s ease-out 1.1s forwards; }
-
-    /* ================= BARRA SUPERIOR: EL RECOMENDADO (CÁPSULA NEÓN) ================= */
-    .barra-superior {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 80px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 80px;
-        box-sizing: border-box;
-        background: transparent;
-        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        z-index: 1000;
-    }
-
-    /* EFECTO AL BAJAR: Se convierte en una cápsula flotante con borde animado */
-    .barra-superior.scrolled {
-        top: 20px;            /* Se despega del techo */
-        width: 85%;           /* Se hace más angosta */
-        left: 7.5%;           /* Se centra horizontalmente */
-        height: 60px;
-        border-radius: 100px; /* Bordes totalmente circulares */
-        background: rgba(10, 12, 16, 0.8); /* Negro traslúcido */
-        backdrop-filter: blur(15px);       /* Efecto cristal */
-        -webkit-backdrop-filter: blur(15px);
-        padding: 0 40px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-        
-        /* Borde fino con gradiente */
-        border: 1px solid rgba(0, 243, 255, 0.2); 
-    }
-
-    /* Línea de energía animada solo cuando estás en modo "scrolled" */
-    .barra-superior.scrolled::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 20%;
-        width: 60%;
-        height: 2px;
-        background-size: 200% auto;
-        animation: flowLine 3s linear infinite;
-        filter: blur(1px);
-    }
-
-    @keyframes flowLine {
-        0% { background-position: 0% center; }
-        100% { background-position: 200% center; }
-    }
-
-    /* Ajuste de los enlaces para que se vean más nítidos en la cápsula */
-    .barra-superior ul {
-        list-style: none;
-        display: flex;
-        gap: 30px;
-    }
-
-    .barra-superior a {
-        text-decoration: none;
-        color: #ffffff;
-        font-size: 14px;
-        font-weight: 500;
-        transition: 0.3s;
-        opacity: 0.8;
-    }
-
-    .barra-superior a:hover {
-        opacity: 1;
-        color: var(--color-acento);
-        text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
-    }
-
-    /* Si quieres que el logo también cambie de tamaño al bajar */
-    .barra-superior.scrolled .logo {
-        transform: scale(0.9);
-    }
-    /* El nombre Yeferson se queda blanco por el color del .logo */
-    .logo { 
-        font-size: 17px; 
-        font-weight: 600; 
-        color: #fff; /* Blanco */
-        transition: 0.3s;
-    }
-
-    /* Solo la palabra Najar (el span) será azul */
-    .logo span {
-        color: var(--color-acento); /* Azul neón */
-        text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
-    }
-
-    .barra-superior ul { list-style: none; display: flex; gap: 30px; }
-
-    /* Los enlaces siempre se verán */
-    .barra-superior a {
-        text-decoration: none;
-        color:  #ffffff; /* Blanco puro para que se vea sobre cualquier fondo */
-        font-weight: 500;
-        transition: .3s;
-        font-size: 14px;
-        text-shadow: 0 2px 4px rgb(38, 4, 132); /* Sombrita para que no se pierda en el fondo blanco */
-    }
-
-    .barra-superior a:hover { 
-        color: var(--color-acento); 
-    }
-
-    /* ================= 4. CONTENIDO PRINCIPAL ================= */
-    .contenedor-principal {
-        padding: 0 80px;
-        max-width: 1200px;
-        margin: auto;
-        padding-top: 90px;
-    }
-
-    /* ================= 5. SECCIÓN PORTADA (HERO) ================= */
-    .portada {
-        min-height: 90vh; /* Ajustado para que se vea mejor en pantallas grandes */
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 40px;
-        flex-wrap: wrap;
-    }
-
-    .portada h1 { font-size: 55px; line-height: 1.1; }
-    .resaltado { color: var(--color-acento); text-shadow: 0 0 15px rgba(0, 243, 255, 0.3); }
-    .subtitulo { margin: 20px 0; color: var(--color-texto-secundario); font-size: 20px;}
-    .descripcion { max-width: 500px; margin-bottom: 30px; color: var(--color-texto-secundario); }
-
-    /* IMAGEN CON EFECTO NEÓN Y FLOTACIÓN */
-    .portada-derecha img {
-        width: 340px;
-        max-width: 100%;
-        border-radius: 30px;
-        box-shadow: 0 0 30px rgba(0, 242, 255, 0.358); /* Sombra inicial suave */
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-        animation: flotar 4s ease-in-out infinite alternate;
-    }
-
-    .portada-derecha img:hover {
-        transform: translateY(-10px) scale(1.05);
-        box-shadow: 0 0 60px rgba(0, 243, 255, 0.4); /* Sombra intensa al pasar el mouse */
-    }
-
-    @keyframes flotar {
-        0% { transform: translateY(0px); }
-        100% { transform: translateY(-15px); }
-    }
-
-    /* BOTONES */
-    .botones { margin-top: 30px; display: flex; gap: 20px; flex-wrap: wrap; }
-    .botones a {
-        padding: 14px 30px;
-        border-radius: 8px;
-        font-size: 15px;
-        font-weight: 600;
-        text-decoration: none !important;
-        display: inline-block;
-        transition: .3s ease;
-    }
-
-    .boton-primario {
-        background: var(--color-acento);
-        color: #000;
-        box-shadow: 0 5px 20px rgba(0, 243, 255, 0.3);
-    }
-
-    .boton-primario:hover {
-        background: #00c7d4; /* Un poco más oscuro */
-        transform: translateY(-4px);
-        box-shadow: 0 10px 30px rgba(0, 243, 255, 0.5);
-    }
-
-    /* REDES SOCIALES */
-    .redes-sociales { margin-top: 30px; display: flex; gap: 18px; }
-    .redes-sociales a {
-        width: 42px; height: 42px;
-        display: flex; align-items: center; justify-content: center;
-        border-radius: 50%;
-        background: #1e252e; /* Fondo oscuro sutil */
-        color: var(--color-texto-secundario);
-        border: 1px solid var(--color-borde);
-        transition: .3s ease;
-    }
-
-    .redes-sociales a:hover {
-        transform: translateY(-5px);
-        border-color: var(--color-acento);
-        color: var(--color-acento);
-        box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
-    }
-
-    /* ================= 6. SECCIÓN SOBRE MÍ ================= */
-    .sobre-mi { padding: 120px 0; }
-    .contenedor-sobre-mi { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap; }
-
-    .imagen-perfil { flex: 0 0 420px; display: flex; justify-content: flex-start; margin-left: -60px; }
-    .imagen-perfil img {
-        width: 340px; height: 340px; object-fit: cover; border-radius: 50%;
-        border: 4px solid var(--color-borde);
-        box-shadow: 0 25px 60px rgba(0,0,0,.6);
-        transition: .35s ease;
-    }
-    .imagen-perfil img:hover { transform: scale(1.05); border-color: var(--color-acento); }
-
-    .imagen-perfil img {
-        width: 340px; height: 340px; object-fit: cover; border-radius: 50%;
-        /* Borde doble: uno oscuro y uno neón fino */
-        border: 2px solid rgba(0, 187, 255, 0.5);
-        padding: 10px; /* Espacio para el efecto eclipse */
-        background: #000; /* Fondo del "agujero" */
-        
-        /* Sombra profunda + brillo sutil */
-        box-shadow: 
-            inset 0 0 20px rgba(0, 0, 0, 1),
-            0 0 30px rgba(0, 187, 255, 0.2);
-        transition: all .5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .imagen-perfil img:hover {
-        transform: scale(1.05);
-        border-color: var(--color-acento);
-        /* El brillo se expande hacia afuera */
-        box-shadow: 
-            inset 0 0 10px rgba(0, 0, 0, 0.5),
-            0 0 50px rgba(0, 187, 255, 0.6);
-        filter: brightness(1.1);
-    }   
-    .contenido-texto { flex: 1; min-width: 300px; }
-    .contenido-texto h2 { font-size: 42px; margin-bottom: 10px; }
-    .nombre { font-size: 32px; margin-bottom: 15px; color: var(--color-acento); }
-
-    /* TARJETAS DE SOBRE MÍ CON EFECTO PROFUNDIDAD */
-    .cuadricula-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px; }
-    .tarjeta {
-        background: var(--color-fondo-tarjeta);
-        padding: 25px;
-        border-radius: 15px;
-        border: 1px solid var(--color-borde);
-        transition: 0.3s;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra de profundidad */
-    }
-    .tarjeta:hover {
-        transform: translateY(-5px);
-        border-color: var(--color-acento);
-        box-shadow: 0 10px 40px rgba(0, 243, 255, 0.15); /* Sombra neón suave */
-    }
-
-    .titulo-tarjeta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-    .titulo-tarjeta img { width: 45px; height: 40px; object-fit: contain; }
-    .etiqueta { background: #232936; color: var(--color-acento); padding: 5px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; }
-
-    /* ================= 7. SECCIÓN HABILIDADES ================= */
-    .habilidades { padding: 100px 0; }
-    .titulo-seccion { font-size: 55px; margin: 60px 0; text-align: center; }
-    .titulo-seccion span { color: var(--color-acento); }
-
-    .subtitulo-habilidades { color: var(--color-texto-secundario); text-align: center; margin-bottom: 50px; font-size: 18px; }
-
-    .contenedor-habilidades {
-        background: var(--color-fondo-tarjeta);
-        width: 100%; max-width: 1200px; margin: 0 auto;
-        border-radius: 20px;
-        padding: 50px 60px;
-        border: 1px solid var(--color-borde);
-        box-shadow: 0 20px 50px rgba(0,0,0,0.6); /* Sombra profunda */
-    }
-
-    .botones-ventana { display: flex; gap: 10px; margin-bottom: 40px; align-items: center; }
-    .punto { width: 12px; height: 12px; border-radius: 50%; }
-    .rojo { background: #ff5f56; }
-    .amarillo { background: #ffbd2e; }
-    .verde { background: #27c93f; }
-    .texto-terminal { margin-left: 20px; font-size: 14px; color: var(--color-texto-secundario); font-family: monospace; }
-
-    /* BARRAS DE HABILIDAD */
-    .habilidad-item { display: flex; align-items: center; gap: 25px; margin-bottom: 35px; }
-    .icono {
-        flex: 0 0 60px; height: 60px; background: #161b22; border-radius: 12px;
-        display: flex; justify-content: center; align-items: center;
-        font-size: 28px; color: var(--color-acento);
-        border: 1px solid var(--color-borde);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-
-    .barra-contenedor { flex: 1; }
-    .encabezado-barra { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 12px; }
-    .nombre-tec { font-size: 18px; font-weight: 600; }
-    .nombre-tec span { font-size: 14px; font-weight: 300; color: var(--color-texto-secundario); margin-left: 8px; }
-    .porcentaje { font-size: 16px; font-weight: 600; color: var(--color-acento); }
-
-    .barra-fondo {
-        width: 100%; height: 8px; background: #2a303c; border-radius: 20px; overflow: hidden;
-    }
-    .barra-relleno {
-        height: 100%; background: var(--color-acento); border-radius: 20px;
-        box-shadow: 0 0 10px rgba(0, 243, 255, 0.5); /* Glow en la barra */
-    }
-
-    /* ================= 8. SECCIÓN PROYECTOS ================= */
-    .proyectos { margin-top: 120px; position: relative; }
-    .proyecto { min-height: 80vh; display: flex; align-items: center; gap: 80px; position: relative; margin-bottom: 100px; }
-
-    .imagen-proyecto { flex: 1; position: relative; }
-    .imagen-proyecto img {
-        width: 100%; max-width: 650px; border-radius: 20px;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.5); /* Sombra para dar efecto 3D */
-        border: 1px solid var(--color-borde);
-        transition: transform 0.5s ease;
-    }
-    .imagen-proyecto:hover img { transform: scale(1.02); border-color: var(--color-acento); }
-
-    .info-proyecto { flex: 1; max-width: 600px; }
-    .info-proyecto h3 { font-size: 40px; margin-bottom: 24px; color: var(--color-texto); }
-    .info-proyecto p { font-size: 18px; line-height: 1.8; color: var(--color-texto-secundario); }
-
-    /* Invertir orden en proyectos pares */
-    .proyecto.invertido { flex-direction: row-reverse; }
-
-    /* ================= 9. SECCIÓN CONTACTO (EL IMPACTO DURO) ================= */
-    .contacto { padding: 100px 0; text-align: center; }
-    .contenedor-contacto { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
-
-    .tarjeta-contacto {
-        background: var(--color-fondo-tarjeta);
-        padding: 40px; border-radius: 20px;
-        border: 1px solid var(--color-borde);
-        transition: 0.3s ease;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
-
-    .tarjeta-contacto:hover {
-        border-color: var(--color-acento);
-        transform: translateY(-10px);
-        box-shadow: 0 15px 40px rgba(0, 243, 255, 0.2);
-    }
-
-    .icono-contacto { font-size: 40px; color: var(--color-acento); margin-bottom: 20px; }
-    .tarjeta-contacto h3 { margin-bottom: 10px; font-size: 20px; color: var(--color-texto); }
-    .tarjeta-contacto p { color: var(--color-texto-secundario); margin-bottom: 25px; }
-
-    .boton-contacto {
-        text-decoration: none; color: #000; background: var(--color-acento);
-        padding: 12px 25px; border-radius: 8px; font-weight: 700; font-size: 14px;
-        transition: 0.3s;
-        box-shadow: 0 5px 15px rgba(0, 243, 255, 0.3);
-    }
-
-    .boton-contacto:hover {
-        background: #fff; color: #000;
-        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
-        transform: translateY(-2px);
-    }
-
-    .etiqueta-viva {
-        display: inline-block; background: rgba(39, 201, 63, 0.15); color: #27c93f;
-        padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;
-    }
-
-    /* ================= 10. PIE DE PÁGINA ================= */
-    .pie-pagina { background: #05070a; padding: 60px 0 20px; margin-top: 80px; border-top: 1px solid var(--color-borde); }
-    .contenedor-footer { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; padding: 0 20px; }
-    .footer-info p { color: var(--color-texto-secundario); margin: 20px 0; line-height: 1.6; max-width: 400px; }
-
-    .redes-footer { display: flex; gap: 15px; }
-    .redes-footer a { font-size: 22px; color: var(--color-texto-secundario); transition: 0.3s; }
-    .redes-footer a:hover { color: var(--color-acento); transform: translateY(-3px); text-shadow: 0 0 10px var(--azul-brillante); }
-
-    .footer-nav h4, .footer-legal h4 { margin-bottom: 20px; font-size: 18px; color: #fff; }
-    .footer-nav ul, .footer-legal ul { list-style: none; }
-    .footer-nav ul li, .footer-legal ul li { margin-bottom: 10px; }
-    .footer-nav a, .footer-legal a { text-decoration: none; color: var(--color-texto-secundario); transition: 0.3s; }
-    .footer-nav a:hover { color: var(--color-acento); padding-left: 5px; }
-
-    .footer-inferior {
-        max-width: 1200px; margin: 50px auto 0; padding: 20px;
-        border-top: 1px solid var(--color-borde);
-        display: flex; justify-content: space-between; align-items: center;
-        color: var(--color-texto-secundario); font-size: 14px;
-    }
-    .volver-arriba { color: var(--color-acento); font-weight: 600; text-decoration: none; }
-
-    /* ================= 11. ANIMACIONES DE SCROLL (REVELADO FINAL) ================= */
-
-    /* Estado Base (Invisible y desplazado) */
-    .revelar-scroll {
-        opacity: 0;
-        filter: blur(20px);
-        transform: translateY(60px) scale(0.95); /* Profundidad inicial */
-        /* Transición al SALIR (Subir) - Suave y rápida para desaparecer */
-        transition: all 0.5s ease-in; 
-        will-change: transform, opacity, filter;
-    }
-
-    /* Estado Activo (Visible y enfocado) */
-    .revelar-scroll.activo {
-        opacity: 1;
-        filter: blur(0px);
-        transform: translateY(0) scale(1);
-        /* Transición al ENTRAR (Bajar) - Eléctrica y con rebote suave */
-        transition: 
-            opacity 0.6s ease-out, 
-            filter 0.7s ease-out,
-            transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-
-    /* ================= CONFIGURACIÓN ESPECÍFICA PARA CONTACTO ================= */
-    /* ================= (EL EFECTO "PEGAR DURO" Y CASCADA) ==================== */
-
-    /* Ajuste base para que esperen un poco más */
-    .contacto .revelar-scroll {
-        transition-delay: 0.2s; 
-        /* Empiezan más abajo y más pequeños para que el golpe se note más */
-        transform: translateY(100px) scale(0.8);
-    }
-
-    /* La animación de impacto elástico */
-    .contacto .revelar-scroll.activo {
-        /* Esta curva cubic-bezier crea el efecto de rebote fuerte */
-        transition: 
-            opacity 0.5s ease-out,
-            transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1); 
-    }
-
-    /* Cascada: Uno detrás del otro */
-    .tarjeta-contacto:nth-child(1) { transition-delay: 0.2s; }
-    .tarjeta-contacto:nth-child(2) { transition-delay: 0.4s; }
-    .tarjeta-contacto:nth-child(3) { transition-delay: 0.6s; }
-
-    /* ================= RESPONSIVE ================= */
-    @media (max-width: 768px) {
-        .portada h1 { font-size: 40px; }
-        .contenedor-principal { padding: 90px 20px 20px; }
-        .contenedor-footer { grid-template-columns: 1fr; text-align: center; }
-        .footer-info p { margin: 20px auto; }
-        .redes-footer { justify-content: center; }
-        .footer-inferior { flex-direction: column; gap: 15px; }
-        .imagen-perfil { margin-left: 0; justify-content: center; }
-        .proyecto, .proyecto.invertido { flex-direction: column; text-align: center; gap: 40px; }
-        .info-proyecto { left: 0; top: 0; }
-        .imagen-proyecto img { position: static; width: 100%; }
-    }
-
-    .redes-sociales a {
-        text-decoration: none !important; /* Quita el subrayado de los enlaces */
-        border-bottom: none !important;   /* Quita cualquier borde inferior */
-        outline: none;                    /* Quita el borde de enfoque */
-    }
-
-    

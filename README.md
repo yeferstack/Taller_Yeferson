@@ -44,14 +44,15 @@ Este proyecto fue desarrollado para mostrar mis habilidades como diseños, mis p
 Si deseas trabajar conmigo o tienes alguna propuesta:
 
      Email: yefernjr@gmail.com 
+     
      LinkedIn: [https://www.linkedin.com/in/yeferson-najar-b583113b1/]  
+     
      GitHub: [https://github.com/yeferstack]
 
 ---
 
 ##  Vista Previa
-
-(![alt text](image.png)))
+(![alt text](image.png)
 
 ---
 

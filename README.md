@@ -52,7 +52,7 @@ Si deseas trabajar conmigo o tienes alguna propuesta:
 ---
 
 ##  Vista Previa
-(![alt text](image.png)
+![alt text](image.png)
 
 ---
 

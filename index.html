@@ -2,141 +2,273 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Portafolio | Yeferson</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos.css">
+    <title>Portafolio | Yeferson Najar</title>
+    
+    <meta name="description" content="Portafolio de Yeferson Najar, desarrollador web en formación. Tecnólogo en Análisis y Desarrollo de Software - Sena.">
+    
+    <link rel="icon" type="image/png" href="assets/Estrella.png"> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
+    
+    <link rel="stylesheet" href="css/estilos.css"> 
 </head>
 
 <body>
-
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <h2 class="logo">Yeferson Najar</h2>
-
-        <nav>
+    <header class="barra-superior" role="banner">
+        <div class="logo">Yeferson <span>Najar</span></div>
+        <nav role="navigation" aria-label="Navegación principal">
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Proyectos</a></li>
-                <li><a href="#">Sobre mí</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="#inicio" aria-label="Ir a Inicio">Inicio</a></li>
+                <li><a href="#sobre-mi" aria-label="Ir a Acerca de mí">Acerca</a></li>
+                <li><a href="#proyectos" aria-label="Ir a Proyectos">Proyectos</a></li>
+                <li><a href="#habilidades" aria-label="Ir a Habilidades">Habilidades</a></li>
+                <li><a href="#contacto" aria-label="Ir a Contacto">Contacto</a></li>
             </ul>
         </nav>
+    </header>
 
-        <div class="sidebar-footer">
-        </div>
-    </aside>
-
-    <!-- Contenido principal -->
-    <main class="main-content">
-
-        <!-- HERO -->
-        <section class="hero">
-            <h1>
-                Hola, soy <br>
-                <span>Yeferson</span>
-            </h1>
-
-            <p class="subtitle">
-                Analisis y Desarrollo de Software<br>
-            </p>
-
-            <p class="description">
-                Soy estudiante de ADSO. Me gusta crear, aprender y llevar mis ideas 
-                de diseño a la realidad a través de la programación y creatividad.
-            </p>
-
-            <div class="buttons">
-                <button class="btn-primary">Ver proyectos</button>
-                <button class="btn-secondary">Contactar</button>
+    <main class="contenedor-principal" role="main">
+        
+        <section class="portada" id="inicio" aria-labelledby="hero-title">
+            <div class="portada-izquierda">
+                <h1 id="hero-title">Hola, soy <br><span class="resaltado">Yeferson</span></h1>
+                <p class="subtitulo">&lt; Desarrollo de Software &gt;</p>
+                <p class="descripcion">
+                    Estudiante de ADSO apasionado por crear interfaces modernas
+                    y convertir ideas en experiencias digitales y reales.
+                </p>
+                <div class="botones">
+                    <a href="#proyectos" class="boton-primario">Ver proyectos →</a>
+                </div>
+                
+                <nav class="redes-sociales" aria-label="Redes sociales">
+                    <a href="https://www.linkedin.com/in/yeferson-najar-b583113b1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Yeferson Najar" title="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.instagram.com/xa_yefer/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Yeferson" title="Instagram">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@yefersonnajar6931" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube" title="YouTube">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@yefer_archi" target="_blank" rel="noopener noreferrer" aria-label="TikTok de Yefer Archi" title="TikTok">
+                        <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+                    </a>
+                </nav>
+            </div>
+            <div class="portada-derecha">
+                <img src="assets/Yeferson_perfil.png" alt="Foto de perfil de Yeferson Najar" loading="lazy">
             </div>
         </section>
 
-        <!-- PROYECTOS -->
-        <section class="projects">
-
-            <h2>Mis Proyectos</h2>
-
-            <div class="project-container">
-
-                <div class="project-card">
-                    <h3>sneakers paguina web</h3>
-                    <p>Portafolio visual de sneakers con efecto hover.</p>
-                    <a href="#">Ver más</a>
+        <section class="sobre-mi" id="sobre-mi" aria-labelledby="about-title">
+            <div class="contenedor-sobre-mi">
+                <div class="imagen-perfil revelar-scroll">
+                    <img src="assets/Yeferson_Animado.png" alt="Ilustración animada de Yeferson Najar" loading="lazy">
                 </div>
+                <div class="contenido-texto">
+                    <h2 id="about-title" class="revelar-scroll">Acerca de <span>Mí</span></h2>
+                    <h3 class="nombre revelar-scroll">Yeferson Najar</h3>
+                    <p class="descripcion revelar-scroll">
+                        Me considero una persona responsable, curiosa y orientada a resultados.
+                    </p>
 
-                <div class="project-card">
-                    <h3>Noticiero web</h3>
-                    <p>Sitio organizado para mostrar noticias.</p>
-                    <a href="#">Ver más</a>
+                    <div class="cuadricula-info">
+                        <article class="tarjeta revelar-scroll">
+                            <div class="titulo-tarjeta">
+                                <img src="assets/Logo_1.png" alt="" aria-hidden="true">
+                                <h4>Educación</h4>
+                            </div>
+                            <p class="lugar">Tecnólogo en Análisis y Desarrollo de Software</p>
+                            <p class="institucion">Sena</p>
+                            <span class="etiqueta">2025 - En Desarrollo</span>
+                        </article>
+                        <article class="tarjeta revelar-scroll">
+                            <div class="titulo-tarjeta">
+                                <img src="assets/Logo_2.png" alt="" aria-hidden="true">
+                                <h4>Hobbies</h4>
+                            </div>
+                            <p class="lugar">Me gusta jugar fútbol, voleibol y disfrutar de videojuegos.</p>
+                        </article>
+                        <article class="tarjeta revelar-scroll">
+                            <div class="titulo-tarjeta">
+                                <img src="assets/Logo_3.png" alt="" aria-hidden="true">
+                                <h4>Sueños y Objetivos</h4>
+                            </div>
+                            <p class="lugar">Mi sueño es tener una casa propia y desarrollarme profesionalmente.</p>
+                        </article>
+                    </div>
                 </div>
-
-                <div class="project-card">
-                    <h3>Manejo de GitHub y ramas</h3>
-                    <p>Organización de repositorios y ramas.</p>
-                    <a href="#">Ver más</a>
-                </div>
-
             </div>
-
         </section>
-<!-- HABILIDADES -->
-<section class="skills">
-    <h2>Mis <span>Habilidades</span></h2>
-    <p class="skills-subtitle">
-        Tecnologías que estoy aprendiendo y estoy perfeccionando.
-    </p>
 
-    <div class="skills-card">
+        <section class="proyectos" id="proyectos" aria-labelledby="projects-title">
+            <h2 id="projects-title" class="titulo-seccion revelar-scroll">Mis <span>Proyectos</span></h2>
+            
+            <article class="proyecto revelar-scroll">
+                <div class="imagen-proyecto">
+                    <img src="assets/paguina_zapatos.png" alt="Captura de Página Web de Sneakers" loading="lazy">
+                </div>
+                <div class="info-proyecto">
+                    <h3>Página Web de Sneakers</h3>
+                    <p>Desarrollé una página enfocada en la exhibición de zapatillas, aplicando HTML y CSS.</p>
+                </div>
+            </article>
+            <article class="proyecto invertido revelar-scroll">
+                <div class="imagen-proyecto">
+                    <img src="assets/Paguina_noticias.png" alt="Captura de página web de noticias" loading="lazy">
+                </div>
+                <div class="info-proyecto">
+                    <h3>Página web de noticias</h3>
+                    <p>Prototipo de página de noticias para practicar el flujo de Git y GitHub.</p>
+                </div>
+            </article>
+        </section>
 
-        <!-- Skill 1 -->
-        <div class="skill">
-            <div class="skill-info">
-                <span>Estructura Web (HTML)</span>
-                <span>60%</span>
-            </div>
-            <div class="progress">
-                <div class="progress-bar Html"></div>
-            </div>
-        </div>
+        <section class="habilidades" id="habilidades" aria-labelledby="skills-title">
+            <h2 id="skills-title" class="titulo-seccion revelar-scroll">Mis <span>Habilidades</span></h2>
+            <p class="subtitulo-habilidades revelar-scroll">Tecnologías y herramientas que utilizo</p>
+            
+            <div class="contenedor-habilidades revelar-scroll">
+                <div class="botones-ventana">
+                    <span class="punto rojo" aria-hidden="true"></span>
+                    <span class="punto amarillo" aria-hidden="true"></span>
+                    <span class="punto verde" aria-hidden="true"></span>
+                    <span class="texto-terminal">Tecnologías</span>
+                </div>
+                
+                <div class="habilidad-item">
+                    <div class="icono"><i class="fa-brands fa-html5" aria-hidden="true"></i></div>
+                    <div class="barra-contenedor">
+                        <div class="encabezado-barra">
+                            <span class="nombre-tec">HTML <span>(Estructura)</span></span>
+                            <span class="porcentaje">80%</span>
+                        </div>
+                        <div class="barra-fondo">
+                            <div class="barra-relleno" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Skill 2 -->
-        <div class="skill">
-            <div class="skill-info">
-                <span>Diseño y Estilos (CSS)</span>
-                <span>72%</span>
-            </div>
-            <div class="progress">
-                <div class="progress-bar Css"></div>
-            </div>
-        </div>
+                <div class="habilidad-item">
+                    <div class="icono"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i></div>
+                    <div class="barra-contenedor">
+                        <div class="encabezado-barra">
+                            <span class="nombre-tec">CSS <span>(Diseño)</span></span>
+                            <span class="porcentaje">90%</span>
+                        </div>
+                        <div class="barra-fondo">
+                            <div class="barra-relleno" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Skill 3 -->
-        <div class="skill">
-            <div class="skill-info">
-                <span>Herramientas de Trabajo (VS Code)</span>
-                <span>95%</span>
+                <div class="habilidad-item">
+                    <div class="icono"><i class="fa-brands fa-github" aria-hidden="true"></i></div>
+                    <div class="barra-contenedor">
+                        <div class="encabezado-barra">
+                            <span class="nombre-tec">GitHub <span>(Versiones)</span></span>
+                            <span class="porcentaje">69%</span>
+                        </div>
+                        <div class="barra-fondo">
+                            <div class="barra-relleno" style="width: 69%;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="progress">
-                <div class="progress-bar Vs"></div>
-            </div>
-        </div>
+        </section>
 
-                <!-- Skill 4 -->
-        <div class="skill">
-            <div class="skill-info">
-                <span>Control de Versiones (GitHub)</span>
-                <span>83%</span>
-            </div>
-            <div class="progress">
-                <div class="progress-bar GitHub"></div>
-            </div>
-        </div>
+        <section class="contacto" id="contacto" aria-labelledby="contact-title">
+            <h2 id="contact-title" class="titulo-seccion revelar-scroll">¡Hablemos! <span>Contacto</span></h2>
+            
+            <div class="contenedor-contacto">
+                <article class="tarjeta-contacto revelar-scroll">
+                    <div class="icono-contacto"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
+                    <h3>Correo Electrónico</h3>
+                    <p><a href="mailto:yefernjr@gmail.com">yefernjr@gmail.com</a></p>
+                    <a href="mailto:yefernjr@gmail.com?subject=Contacto" class="boton-contacto">Enviar mensaje</a>
+                </article>
 
-    </div>
-</section>
+                <article class="tarjeta-contacto revelar-scroll">
+                    <div class="icono-contacto"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></div>
+                    <h3>WhatsApp</h3>
+                    <p>+57 314 597 9628</p>
+                    <a href="https://wa.me/573145979628" target="_blank" class="boton-contacto">Escribir ahora</a>
+                </article>
 
+                <article class="tarjeta-contacto revelar-scroll">
+                    <div class="icono-contacto"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
+                    <h3>Ubicación</h3>
+                    <p>Yopal, Casanare - Colombia</p>
+                    <span class="etiqueta-viva">Disponible para remoto</span>
+                </article>
+            </div>
+        </section>
     </main>
 
+    <footer class="pie-pagina" role="contentinfo">
+        <div class="contenedor-footer">
+            <div class="footer-info">
+                <h2 class="logo">Yeferson <span>Najar</span></h2>
+                <p>Creando experiencias digitales excepcionales con pasión por el código.</p>
+                <nav class="redes-footer" aria-label="Redes sociales en footer">
+                    <a href="https://www.linkedin.com/in/yeferson-najar-b583113b1/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/xa_yefer/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@yefersonnajar6931" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@yefer_archi" target="_blank" ><i class="fa-brands fa-tiktok"></i></a>
+                </nav>
+            </div>
+            <nav class="footer-nav">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sobre-mi">Acerca de</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="footer-inferior">
+            <p>&copy; 2026 Yeferson Najar. Todos los derechos reservados.</p>
+            <a href="#inicio" class="volver-arriba">Volver arriba <i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // 1. ANIMACIÓN AL HACER SCROLL:
+        // Este código detecta cuando una sección aparece en pantalla y le pone la clase 'activo'
+        // para que se dispare la animación de CSS.
+        const observerOptions = {
+            threshold: 0.2, // Se activa cuando el 20% del elemento es visible
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('activo');
+                } else {
+                    entry.target.classList.remove('activo');
+                }
+            });
+        }, observerOptions);
+
+        // Busca todos los elementos que tengan la clase 'revelar-scroll' y los observa
+        document.querySelectorAll('.revelar-scroll').forEach(el => observer.observe(el));
+
+        // 2. EFECTO BARRA LATERAL:
+        // Si el usuario baja más de 50px, la barra lateral cambia de estilo (clase 'scrolled')
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.barra-superior');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>

@@ -58,7 +58,7 @@ Si deseas trabajar conmigo o tienes alguna propuesta:
 
 ---
 
-##  Aprendizajes
+##  Aprendizajes 👀
 
 Durante este proyecto practiqué:
 

@@ -29,7 +29,7 @@ Este proyecto fue desarrollado para mostrar mis habilidades como diseños, mis p
 - Sección de proyectos dinámica  
 - Sección de contacto interactiva  
 - Efectos hover profesionales  
-✔ Totalmente responsive  
+. Totalmente responsive  
 
 ---
 

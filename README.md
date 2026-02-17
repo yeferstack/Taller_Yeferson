@@ -5,8 +5,7 @@ Este proyecto fue desarrollado para mostrar mis habilidades como diseños, mis p
 
 ---
 
-## <img width="500" height="500" alt="Estrella" src="https://github.com/user-attachments/assets/222de658-7e3a-46a5-91cb-1f909e8b3004" />
- Demo
+## 📈 Demo
 
  Puedes verlo aquí:  
 [Ver Portafolio](https://yeferstack.github.io/Taller_Yeferson/)
